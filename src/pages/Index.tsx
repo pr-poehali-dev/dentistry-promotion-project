@@ -219,10 +219,120 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-50">
+        <div className="container mx-auto max-w-7xl">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Щадящая имплантация зубов с восстановлением{" "}
+              <span className="inline-block bg-primary text-white px-6 py-2 rounded-full">
+                в 5 раз быстрее
+              </span>{" "}
+              обычного
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-xl overflow-hidden relative">
+              <CardContent className="pt-8 pb-8">
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    Акция до 10 ноября
+                  </div>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold mb-2">ИМПЛАНТ</h3>
+                  <h3 className="text-2xl font-bold mb-6">ЗУБА + КОРОНКА</h3>
+                  <div className="mb-4">
+                    <p className="text-white/90 text-lg mb-2">в рассрочку 0%</p>
+                    <p className="text-4xl font-bold mb-1">4 800 ₽/мес</p>
+                    <p className="text-white/80 text-sm">или <span className="line-through">82 000 ₽</span> 48 000 ₽</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-64 h-64 opacity-20">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/5944c8ec-ae99-4987-85f7-2f361740db31.jpg"
+                    alt="Dental implant"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-xl overflow-hidden relative">
+              <CardContent className="pt-8 pb-8">
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    Акция до 10 ноября
+                  </div>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold mb-2">ВСЯ ЧЕЛЮСТЬ</h3>
+                  <h3 className="text-2xl font-bold mb-6">«ПОД КЛЮЧ»</h3>
+                  <div className="mb-4">
+                    <p className="text-white/90 text-lg mb-2">в рассрочку 0%</p>
+                    <p className="text-4xl font-bold mb-1">11 450 ₽/мес</p>
+                    <p className="text-white/80 text-sm">или <span className="line-through">129 000 ₽</span> 114 500 ₽</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-80 h-64 opacity-20">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/c3787668-edc6-4556-9494-af4d58d64e1b.jpg"
+                    alt="Full jaw restoration"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="bg-blue-50/50 border-2 border-primary/20 shadow-lg">
+            <CardContent className="pt-8 pb-8">
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-foreground mb-2">
+                  Ответьте на 4 вопроса и получите{" "}
+                  <span className="text-primary">РАСЧЁТ СТОИМОСТИ + ПОДАРКИ:</span>
+                </h3>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8 mb-8">
+                <div className="flex gap-3 items-start">
+                  <Icon name="Check" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium text-foreground">КТ-снимки для оценки</p>
+                    <p className="text-muted-foreground text-sm">состояния челюстей</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <Icon name="Check" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium text-foreground">Консультацию сразу</p>
+                    <p className="text-muted-foreground text-sm">3х специалистов</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <Icon name="Check" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium text-foreground">План лечения под ваш</p>
+                    <p className="text-muted-foreground text-sm">случай и бюджет</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-lg px-12 py-6 h-auto shadow-lg"
+                >
+                  РАССЧИТАТЬ СТОИМОСТЬ + ПОЛУЧИТЬ ПОДАРКИ
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Наши услуги</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Другие услуги</h2>
             <p className="text-xl text-muted-foreground">
               Полный спектр стоматологических услуг для всей семьи
             </p>
