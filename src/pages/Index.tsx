@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
@@ -9,233 +8,128 @@ const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    service: "",
-    message: ""
+    email: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Спасибо за заявку! Мы свяжемся с вами в ближайшее время.");
-    setFormData({ name: "", phone: "", service: "", message: "" });
+    setFormData({ name: "", phone: "", email: "" });
   };
 
-  const services = [
+  const doctors = [
     {
-      icon: "Stethoscope",
-      title: "Терапия",
-      description: "Лечение кариеса, пульпита, периодонтита. Профессиональная гигиена полости рта."
+      name: "Иванов Сергей",
+      specialty: "Имплантолог",
+      experience: "15 лет опыта",
+      image: "https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/658421e2-9ab9-45d5-aaf8-c2051cf027e3.jpg"
     },
     {
-      icon: "Crown",
-      title: "Ортопедия",
-      description: "Протезирование зубов, виниры, коронки. Восстановление эстетики и функции."
+      name: "Петрова Анна",
+      specialty: "Ортопед",
+      experience: "12 лет опыта",
+      image: "https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/fbfb7f82-a5f7-40bb-86ad-51f3cf96cdba.jpg"
     },
     {
-      icon: "Anvil",
-      title: "Имплантология",
-      description: "Современная имплантация зубов под ключ. Пожизненная гарантия на импланты."
-    },
-    {
-      icon: "Sparkles",
-      title: "Эстетика",
-      description: "Отбеливание зубов, художественная реставрация. Голливудская улыбка."
+      name: "Смирнов Дмитрий",
+      specialty: "Хирург",
+      experience: "18 лет опыта",
+      image: "https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/658421e2-9ab9-45d5-aaf8-c2051cf027e3.jpg"
     }
   ];
 
-  const advantages = [
+  const pricingPlans = [
     {
-      icon: "Award",
-      title: "Опытные врачи",
-      description: "Стаж специалистов от 10 лет. Регулярное повышение квалификации."
+      title: "БАЗОВЫЙ",
+      price: "35 000",
+      monthly: "2 916",
+      features: [
+        "Имплант Nobel Biocare",
+        "Металлокерамическая коронка",
+        "Операция по установке",
+        "Анестезия",
+        "Послеоперационный осмотр"
+      ]
     },
     {
-      icon: "Microscope",
-      title: "Современное оборудование",
-      description: "Цифровая диагностика, микроскопы, 3D-томография."
+      title: "ОПТИМАЛЬНЫЙ",
+      price: "55 000",
+      monthly: "4 583",
+      featured: true,
+      features: [
+        "Имплант Straumann",
+        "Циркониевая коронка",
+        "Операция по установке",
+        "Анестезия",
+        "КТ-диагностика",
+        "Гарантия 10 лет"
+      ]
     },
     {
-      icon: "ShieldCheck",
-      title: "Гарантия качества",
-      description: "Официальная гарантия на все виды работ до 5 лет."
-    },
-    {
-      icon: "Heart",
-      title: "Без боли",
-      description: "Безболезненное лечение с использованием современной анестезии."
-    },
-    {
-      icon: "FlaskConical",
-      title: "Своя лаборатория",
-      description: "Изготовление протезов на месте. Быстрые сроки и контроль качества."
-    },
-    {
-      icon: "CreditCard",
-      title: "Рассрочка 0%",
-      description: "Лечение в рассрочку без переплат и скрытых комиссий."
-    }
-  ];
-
-  const steps = [
-    {
-      number: "01",
-      title: "Консультация",
-      description: "Бесплатный осмотр и диагностика. Составление индивидуального плана лечения."
-    },
-    {
-      number: "02",
-      title: "План лечения",
-      description: "Детальная смета с фиксированными ценами. Обсуждение всех этапов работы."
-    },
-    {
-      number: "03",
-      title: "Лечение",
-      description: "Качественное выполнение всех процедур по утвержденному плану."
-    },
-    {
-      number: "04",
-      title: "Результат",
-      description: "Здоровые зубы и красивая улыбка. Гарантия и поддержка после лечения."
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Мария Петрова",
-      text: "Делала имплантацию в этой клинике. Очень довольна результатом! Врачи профессионалы своего дела, всё прошло быстро и безболезненно.",
-      rating: 5
-    },
-    {
-      name: "Александр Иванов",
-      text: "Обратился с острой болью. Приняли в тот же день, быстро вылечили. Цены адекватные, отношение внимательное. Рекомендую!",
-      rating: 5
-    },
-    {
-      name: "Елена Смирнова",
-      text: "Отбеливала зубы перед свадьбой. Результат превзошёл все ожидания! Улыбка стала белоснежной. Спасибо большое!",
-      rating: 5
+      title: "ПРЕМИУМ",
+      price: "85 000",
+      monthly: "7 083",
+      features: [
+        "Имплант Nobel Biocare Active",
+        "Коронка E-max",
+        "Операция по установке",
+        "Анестезия",
+        "КТ-диагностика",
+        "Пожизненная гарантия",
+        "3D-планирование"
+      ]
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <Icon name="Smile" size={32} className="text-primary" />
-            <span className="text-xl font-bold text-foreground">СтомаКлиник</span>
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <Icon name="Activity" size={24} className="text-white" />
+            </div>
+            <div>
+              <div className="font-bold text-xl text-primary">Флоренс</div>
+              <div className="text-xs text-muted-foreground">Стоматология</div>
+            </div>
           </div>
-          <Button size="lg" className="hidden md:flex">
-            Записаться на приём
-          </Button>
+          <nav className="hidden md:flex gap-6">
+            <a href="#services" className="text-sm hover:text-primary transition-colors">Услуги</a>
+            <a href="#doctors" className="text-sm hover:text-primary transition-colors">Врачи</a>
+            <a href="#prices" className="text-sm hover:text-primary transition-colors">Цены</a>
+            <a href="#contact" className="text-sm hover:text-primary transition-colors">Контакты</a>
+          </nav>
+          <div className="flex items-center gap-4">
+            <div className="hidden md:block text-right">
+              <div className="font-semibold text-primary">+7 (495) 123-45-67</div>
+              <div className="text-xs text-muted-foreground">Ежедневно 9:00-21:00</div>
+            </div>
+            <Button size="sm">
+              <Icon name="Phone" size={16} className="mr-2" />
+              Позвонить
+            </Button>
+          </div>
         </div>
       </header>
 
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Современная стоматология{" "}
-                <span className="text-primary">без боли</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Качественное лечение с гарантией и заботой о пациентах. Первая консультация бесплатно.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8">
-                  <Icon name="Calendar" size={20} className="mr-2" />
-                  Записаться на приём
-                </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8">
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Позвонить
-                </Button>
-              </div>
-              <div className="mt-8 flex items-center gap-8">
-                <div>
-                  <div className="text-3xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">лет опыта</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">10000+</div>
-                  <div className="text-sm text-muted-foreground">пациентов</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">довольных</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8">
-                <img 
-                  src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/8b34b49e-384c-474c-b1ff-de1772d400c5.jpg" 
-                  alt="Современная стоматология" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">О нашей клинике</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Мы создали современную клинику, где каждый пациент получает индивидуальный подход и высочайшее качество услуг
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:border-primary transition-colors">
-              <CardContent className="pt-6">
-                <Icon name="Users" size={48} className="text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Команда профессионалов</h3>
-                <p className="text-muted-foreground">
-                  Наши врачи регулярно проходят обучение и повышают квалификацию в России и за рубежом
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-colors">
-              <CardContent className="pt-6">
-                <Icon name="Target" size={48} className="text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Индивидуальный подход</h3>
-                <p className="text-muted-foreground">
-                  Разрабатываем персональный план лечения с учётом особенностей каждого пациента
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-colors">
-              <CardContent className="pt-6">
-                <Icon name="Zap" size={48} className="text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Современные технологии</h3>
-                <p className="text-muted-foreground">
-                  Используем передовое оборудование и материалы от ведущих мировых производителей
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-50">
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-blue-50">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Щадящая имплантация зубов с восстановлением{" "}
               <span className="inline-block bg-primary text-white px-6 py-2 rounded-full">
                 в 5 раз быстрее
               </span>{" "}
               обычного
-            </h2>
+            </h1>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-xl overflow-hidden relative">
-              <CardContent className="pt-8 pb-8">
+              <CardContent className="pt-8 pb-8 relative z-10">
                 <div className="absolute top-4 right-4">
-                  <div className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                     Акция до 10 ноября
                   </div>
                 </div>
@@ -248,7 +142,7 @@ const Index = () => {
                     <p className="text-white/80 text-sm">или <span className="line-through">82 000 ₽</span> 48 000 ₽</p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-64 h-64 opacity-20">
+                <div className="absolute bottom-0 right-0 w-64 h-64 opacity-10">
                   <img 
                     src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/5944c8ec-ae99-4987-85f7-2f361740db31.jpg"
                     alt="Dental implant"
@@ -259,9 +153,9 @@ const Index = () => {
             </Card>
 
             <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-xl overflow-hidden relative">
-              <CardContent className="pt-8 pb-8">
+              <CardContent className="pt-8 pb-8 relative z-10">
                 <div className="absolute top-4 right-4">
-                  <div className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                     Акция до 10 ноября
                   </div>
                 </div>
@@ -274,7 +168,7 @@ const Index = () => {
                     <p className="text-white/80 text-sm">или <span className="line-through">129 000 ₽</span> 114 500 ₽</p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-80 h-64 opacity-20">
+                <div className="absolute bottom-0 right-0 w-80 h-64 opacity-10">
                   <img 
                     src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/c3787668-edc6-4556-9494-af4d58d64e1b.jpg"
                     alt="Full jaw restoration"
@@ -285,7 +179,7 @@ const Index = () => {
             </Card>
           </div>
 
-          <Card className="bg-blue-50/50 border-2 border-primary/20 shadow-lg">
+          <Card className="bg-gradient-to-br from-blue-50 to-white border-2 border-primary/20 shadow-lg">
             <CardContent className="pt-8 pb-8">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-foreground mb-2">
@@ -316,7 +210,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-start">
+              <div className="flex justify-center">
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-lg px-12 py-6 h-auto shadow-lg"
@@ -329,333 +223,398 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Другие услуги</h2>
-            <p className="text-xl text-muted-foreground">
-              Полный спектр стоматологических услуг для всей семьи
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="border-2 hover:border-primary hover:shadow-lg transition-all group">
-                <CardContent className="pt-6 text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <Icon name={service.icon} size={32} className="text-primary group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Наши преимущества</h2>
-            <p className="text-xl text-muted-foreground">
-              Почему пациенты выбирают нас
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {advantages.map((advantage, index) => (
-              <div key={index} className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon name={advantage.icon} size={24} className="text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">{advantage.title}</h3>
-                  <p className="text-muted-foreground text-sm">{advantage.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Этапы лечения</h2>
-            <p className="text-xl text-muted-foreground">
-              Простой и понятный путь к здоровой улыбке
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-6xl font-bold text-primary/20 mb-4">{step.number}</div>
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-primary/30" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Результаты «До и После»</h2>
-            <p className="text-xl text-muted-foreground">
-              Реальные кейсы наших пациентов
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <Card key={item} className="overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="grid grid-cols-2">
-                  <div className="aspect-square bg-gray-200 relative">
-                    <img src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/ff956e47-4be2-4b34-8969-09fa4c5ae298.jpg" alt="До" className="w-full h-full object-cover grayscale" />
-                    <div className="absolute bottom-2 left-2 bg-white px-3 py-1 rounded-full text-sm font-semibold">
-                      До
-                    </div>
-                  </div>
-                  <div className="aspect-square bg-gray-200 relative">
-                    <img src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/ff956e47-4be2-4b34-8969-09fa4c5ae298.jpg" alt="После" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-2 right-2 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      После
-                    </div>
-                  </div>
-                </div>
-                <CardContent className="pt-4">
-                  <p className="text-sm text-muted-foreground">Имплантация и протезирование</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Отзывы пациентов</h2>
-            <p className="text-xl text-muted-foreground">
-              Что говорят о нас наши пациенты
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-2">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" size={20} className="text-yellow-400 fill-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Icon name="User" size={20} className="text-primary" />
-                    </div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-primary text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Специальные предложения</h2>
-            <p className="text-xl opacity-90">
-              Выгодные акции для новых и постоянных пациентов
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardContent className="pt-6">
-                <Icon name="Gift" size={48} className="mb-4" />
-                <h3 className="text-2xl font-bold mb-3">Первая консультация</h3>
-                <div className="text-4xl font-bold mb-2">БЕСПЛАТНО</div>
-                <p className="opacity-90">Осмотр, диагностика и план лечения</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardContent className="pt-6">
-                <Icon name="Percent" size={48} className="mb-4" />
-                <h3 className="text-2xl font-bold mb-3">Скидка на лечение</h3>
-                <div className="text-4xl font-bold mb-2">-20%</div>
-                <p className="opacity-90">При комплексном лечении от 3 зубов</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardContent className="pt-6">
-                <Icon name="Banknote" size={48} className="mb-4" />
-                <h3 className="text-2xl font-bold mb-3">Рассрочка 0%</h3>
-                <div className="text-4xl font-bold mb-2">12 мес</div>
-                <p className="opacity-90">На все виды лечения без переплат</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Записаться на приём</h2>
-            <p className="text-xl text-muted-foreground">
-              Оставьте заявку, и мы свяжемся с вами в ближайшее время
-            </p>
-          </div>
-          <Card className="border-2">
-            <CardContent className="pt-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Ваше имя *</label>
-                    <Input 
-                      placeholder="Иван Иванов" 
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Телефон *</label>
-                    <Input 
-                      type="tel" 
-                      placeholder="+7 (999) 123-45-67" 
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Интересующая услуга</label>
-                  <Input 
-                    placeholder="Например: имплантация" 
-                    value={formData.service}
-                    onChange={(e) => setFormData({...formData, service: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Комментарий</label>
-                  <Textarea 
-                    placeholder="Опишите вашу проблему или пожелания..." 
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full text-lg">
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Отправить заявку
-                </Button>
-                <p className="text-sm text-muted-foreground text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </p>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="py-12 px-4 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Как нас найти</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Icon name="MapPin" size={24} className="text-primary flex-shrink-0 mt-1" />
+              <h2 className="text-3xl font-bold text-foreground mb-6">
+                Самое важное сегодня – чтобы{" "}
+                <span className="text-primary">импланты прижились</span> и{" "}
+                <span className="text-primary">прослужили не меньше 15-20 лет</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Icon name="Check" size={24} className="text-primary" />
+                  </div>
                   <div>
-                    <div className="font-semibold">Адрес</div>
-                    <div className="text-muted-foreground">г. Москва, ул. Примерная, д. 123</div>
+                    <h4 className="font-semibold text-lg mb-1">Операция без боли</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Современная анестезия и щадящие методики установки имплантов
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Icon name="Clock" size={24} className="text-primary flex-shrink-0 mt-1" />
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Icon name="Check" size={24} className="text-primary" />
+                  </div>
                   <div>
-                    <div className="font-semibold">Режим работы</div>
-                    <div className="text-muted-foreground">Пн-Пт: 9:00 - 21:00<br/>Сб-Вс: 10:00 - 18:00</div>
+                    <h4 className="font-semibold text-lg mb-1">Гарантия приживления</h4>
+                    <p className="text-muted-foreground text-sm">
+                      99,7% успешных имплантаций благодаря опыту наших специалистов
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Icon name="Phone" size={24} className="text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold">Телефон</div>
-                    <div className="text-muted-foreground">+7 (495) 123-45-67</div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Icon name="Check" size={24} className="text-primary" />
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon name="Mail" size={24} className="text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold">Email</div>
-                    <div className="text-muted-foreground">info@stomaclinic.ru</div>
+                    <h4 className="font-semibold text-lg mb-1">Пожизненная гарантия</h4>
+                    <p className="text-muted-foreground text-sm">
+                      На импланты премиум-класса от ведущих производителей
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="aspect-video rounded-2xl bg-gray-200 overflow-hidden">
-              <iframe 
-                src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=1234567890" 
-                width="100%" 
-                height="100%" 
-                frameBorder="0"
-                className="grayscale"
+            <div className="relative">
+              <img 
+                src="https://cdn.poehali.dev/projects/f9e1ba10-ac25-493d-bef5-1a34919bdf17/files/7b9e6d00-ce2a-4046-946c-ae158a375864.jpg"
+                alt="Команда врачей"
+                className="w-full rounded-2xl shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="bg-foreground text-white py-12 px-4">
+      <section id="doctors" className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Доверяйте здоровье и внешность в мастера
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Официальный стаж наших врачей от 10 лет
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {doctors.map((doctor, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow border-2">
+                <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-50">
+                  <img 
+                    src={doctor.image}
+                    alt={doctor.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <CardContent className="pt-6 text-center">
+                  <h3 className="text-xl font-bold mb-1">{doctor.name}</h3>
+                  <p className="text-primary font-semibold mb-2">{doctor.specialty}</p>
+                  <p className="text-muted-foreground text-sm">{doctor.experience}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-2 border-primary/20 hover:border-primary transition-colors">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+                  <Icon name="Award" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-3">Сертификаты</h3>
+                <p className="text-muted-foreground text-sm text-center">
+                  Все врачи имеют действующие сертификаты и дипломы международного образца
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-primary/20 hover:border-primary transition-colors">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+                  <Icon name="GraduationCap" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-3">Обучение</h3>
+                <p className="text-muted-foreground text-sm text-center">
+                  Регулярное повышение квалификации и участие в международных конференциях
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-primary/20 hover:border-primary transition-colors">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+                  <Icon name="Trophy" size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-3">Награды</h3>
+                <p className="text-muted-foreground text-sm text-center">
+                  Победители профессиональных конкурсов и лауреаты отраслевых премий
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="prices" className="py-16 px-4 bg-white">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Сколько стоит имплантация зубов{" "}
+              <span className="text-primary">без боли</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              У нас от 35 000 ₽ — сразу «под ключ» за 4 дня/6 визитов
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {pricingPlans.map((plan, index) => (
+              <Card 
+                key={index} 
+                className={`relative overflow-hidden transition-all hover:shadow-2xl ${
+                  plan.featured 
+                    ? 'border-4 border-green-500 scale-105 shadow-xl' 
+                    : 'border-2 border-primary/20'
+                }`}
+              >
+                {plan.featured && (
+                  <div className="absolute top-0 right-0 bg-green-500 text-white px-6 py-2 text-sm font-bold">
+                    ЛУЧШИЙ ВЫБОР
+                  </div>
+                )}
+                <CardContent className="pt-8 pb-8">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold mb-4 text-primary">{plan.title}</h3>
+                    <div className="mb-2">
+                      <span className="text-5xl font-bold text-foreground">{plan.price}</span>
+                      <span className="text-2xl text-muted-foreground"> ₽</span>
+                    </div>
+                    <div className="text-muted-foreground">
+                      или <span className="font-semibold text-lg text-foreground">{plan.monthly} ₽/мес</span>
+                    </div>
+                    <div className="text-sm text-muted-foreground mt-1">в рассрочку 0%</div>
+                  </div>
+                  
+                  <div className="space-y-3 mb-6">
+                    {plan.features.map((feature, fIndex) => (
+                      <div key={fIndex} className="flex items-start gap-2">
+                        <Icon name="Check" size={20} className="text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button 
+                    className={`w-full ${
+                      plan.featured 
+                        ? 'bg-green-500 hover:bg-green-600' 
+                        : 'bg-primary hover:bg-primary/90'
+                    }`}
+                    size="lg"
+                  >
+                    Выбрать план
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button 
+              size="lg"
+              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-lg px-12"
+            >
+              <Icon name="Calculator" size={20} className="mr-2" />
+              Рассчитать точную стоимость
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gradient-to-br from-primary to-primary/80 text-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">
+                Консультация стоматолога всего за 500₽ вместо 2000₽
+              </h2>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0" />
+                  <span>Осмотр полости рта</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0" />
+                  <span>Составление плана лечения</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0" />
+                  <span>Ответы на все вопросы</span>
+                </div>
+              </div>
+            </div>
+
+            <Card className="bg-white text-foreground">
+              <CardContent className="pt-8 pb-8">
+                <h3 className="text-2xl font-bold text-center mb-6">Запишитесь на приём</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <Input 
+                      placeholder="Ваше имя"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      type="tel"
+                      placeholder="Телефон"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      type="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                    size="lg"
+                  >
+                    Записаться на приём
+                  </Button>
+                  <p className="text-xs text-muted-foreground text-center">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Адрес и контакты</h2>
+            <p className="text-xl text-muted-foreground">Мы всегда рады вам помочь</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <div className="bg-gray-200 rounded-2xl overflow-hidden h-96 mb-6">
+                <iframe 
+                  src="https://yandex.ru/map-widget/v1/?um=constructor%3A12345" 
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0"
+                  title="Карта"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <Card className="border-2">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="MapPin" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-1">Адрес</h4>
+                      <p className="text-muted-foreground">г. Москва, ул. Примерная, д. 123</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Phone" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-1">Телефон</h4>
+                      <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                      <p className="text-sm text-muted-foreground mt-1">Ежедневно с 9:00 до 21:00</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Mail" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-1">Email</h4>
+                      <p className="text-muted-foreground">info@florence-dent.ru</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-gradient-to-br from-primary to-primary/90 text-white py-12 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Icon name="Smile" size={32} />
-                <span className="text-xl font-bold">СтомаКлиник</span>
+                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                  <Icon name="Activity" size={24} className="text-primary" />
+                </div>
+                <div>
+                  <div className="font-bold text-xl">Флоренс</div>
+                  <div className="text-xs text-white/80">Стоматология</div>
+                </div>
               </div>
-              <p className="text-sm opacity-80">
-                Современная стоматология без боли с гарантией качества
+              <p className="text-sm text-white/80">
+                Современная стоматология с европейским подходом
               </p>
             </div>
+
             <div>
               <h4 className="font-semibold mb-4">Услуги</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>Терапия</li>
-                <li>Ортопедия</li>
-                <li>Имплантология</li>
-                <li>Эстетическая стоматология</li>
+              <ul className="space-y-2 text-sm text-white/80">
+                <li><a href="#" className="hover:text-white transition-colors">Имплантация</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Протезирование</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Терапия</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Отбеливание</a></li>
               </ul>
             </div>
+
             <div>
               <h4 className="font-semibold mb-4">Информация</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>О клинике</li>
-                <li>Врачи</li>
-                <li>Цены</li>
-                <li>Акции</li>
+              <ul className="space-y-2 text-sm text-white/80">
+                <li><a href="#" className="hover:text-white transition-colors">О клинике</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Врачи</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Контакты</a></li>
               </ul>
             </div>
+
             <div>
               <h4 className="font-semibold mb-4">Контакты</h4>
-              <ul className="space-y-2 text-sm opacity-80">
+              <ul className="space-y-2 text-sm text-white/80">
                 <li>+7 (495) 123-45-67</li>
-                <li>info@stomaclinic.ru</li>
+                <li>info@florence-dent.ru</li>
                 <li>г. Москва, ул. Примерная, 123</li>
+                <li>Ежедневно: 9:00 - 21:00</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm opacity-80">
-            © 2024 СтомаКлиник. Все права защищены.
+
+          <div className="border-t border-white/20 pt-8 text-center text-sm text-white/60">
+            <p>© 2024 Стоматология Флоренс. Все права защищены.</p>
           </div>
         </div>
       </footer>
